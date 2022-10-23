@@ -1,4 +1,6 @@
-# Architeuthis Dux
+# PINUS
+
+The rest written is the stuff from a-dux which this qmk-build is based on.
 
 ![Architeuthis Dux](https://raw.githubusercontent.com/tapioki/cephalopoda/main/Images/architeuthis_dux.png)
 
