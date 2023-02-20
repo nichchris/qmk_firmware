@@ -102,7 +102,17 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
 }
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [_ENGRAMISH] = LAYOUT(KC_V, KC_W, KC_B, KC_K, XXXXXXX, XXXXXXX, KC_L, KC_U, KC_Y, KC_X, GUI_T(KC_R), ALT_T(KC_S), CTL_T(KC_T), SFT_T(KC_H), NO_MINS, KC_QUOT, SFT_T(KC_N), CTL_T(KC_A), ALT_T(KC_I), GUI_T(KC_O), XXXXXXX, KC_C, KC_G, KC_D, NO_COMM, KC_DOT, KC_M, KC_F, KC_J, XXXXXXX, L_NAV, L_NUM, KC_E, L_SYM),
+[_ENGRAMISH] = LAYOUT(
+// ╭─────────────────────────────────────────────╮ ╭─────────────────────────────────────────────╮
+        KC_V,    KC_W,    KC_B,    KC_K, XXXXXXX,    XXXXXXX,    KC_L,    KC_U,    KC_Y,    KC_X,
+// ├─────────────────────────────────────────────┤ ├─────────────────────────────────────────────┤
+    GUI_T(KC_R), ALT_T(KC_S), CTL_T(KC_T),  SFT_T(KC_H), NO_MINS, KC_QUOT, SFT_T(KC_N), CTL_T(KC_A), ALT_T(KC_I), GUI_T(KC_O),
+// ├─────────────────────────────────────────────┤ ├─────────────────────────────────────────────┤
+    XXXXXXX, KC_C, KC_G, KC_D, NO_COMM, KC_DOT, KC_M, KC_F, KC_J, XXXXXXX,
+// ╰─────────────────────────────────────────────┤ ├─────────────────────────────────────────────╯
+                                L_NAV,   L_NUM,     KC_E,    L_SYM
+//                   ╰───────────────────────────╯ ╰──────────────────╯
+),
 
     // [_NUM] = LAYOUT(
     //     KC_1,      KC_2,       KC_3,       KC_4,       KC_5,       KC_6,       KC_7,       KC_8,       KC_9,       KC_0,
@@ -111,11 +121,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //                                     KC_RSFT,      L_NUM, TD(TD_ENT), TD(TD_BSPC)
     // ),
 
-    [_SYM] = LAYOUT(NO_LBRC, KC_9, KC_8, KC_7, XXXXXXX, XXXXXXX, NO_GRV, NO_SLSH, NO_BSLS, S(NO_0), NO_CIRC, KC_3, KC_2, KC_1, KC_0, NO_AMPR, SFT_T(NO_PIPE), CTL_T(S(NO_PIPE)), ALT_T(ALGR(NO_5)), GUI_T(ALGR(NO_3)), XXXXXXX, KC_6, KC_5, KC_4, NO_MINS, NO_EXLM, NO_QUES, NO_MICR, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, L_SYM, XXXXXXX),
+[_SYM] = LAYOUT(
+// ╭─────────────────────────────────────────────╮ ╭─────────────────────────────────────────────╮
+        KC_V,    KC_9,    KC_8,    KC_7, XXXXXXX,    XXXXXXX,    KC_L,    KC_U,    KC_Y,    KC_X,
+// ├─────────────────────────────────────────────┤ ├─────────────────────────────────────────────┤
+        KC_0,    KC_3,    KC_2,    KC_1, NO_MINS, KC_QUOT, SFT_T(KC_N), CTL_T(KC_A), ALT_T(KC_I), GUI_T(KC_O),
+// ├─────────────────────────────────────────────┤ ├─────────────────────────────────────────────┤
+     XXXXXXX,    KC_6,    KC_5,    KC_4, NO_COMM, KC_DOT, KC_M, KC_F, KC_J, XXXXXXX,
+// ╰─────────────────────────────────────────────┤ ├─────────────────────────────────────────────╯
+                                _______,  _______,  XXXXXXX, _______
+//                   ╰───────────────────────────╯ ╰──────────────────╯
+),
+// NO_LBRC, NO_GRV, NO_SLSH, NO_BSLS, S(NO_0), NO_CIRC, NO_AMPR, SFT_T(NO_PIPE), CTL_T(S(NO_PIPE)), ALT_T(ALGR(NO_5)), GUI_T(ALGR(NO_3)) NO_MINS, NO_EXLM, NO_QUES, NO_MICR,, L_SYM,),
 
-    [_NAV] = LAYOUT(XXXXXXX, XXXXXXX, KC_DEL, KC_BSPC, XXXXXXX, C(S(KC_C)), C(KC_V), C(KC_C), C(KC_X), C(KC_Z), KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_UP, KC_CAPS, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, XXXXXXX, KC_ENT, KC_LEFT, KC_RGHT, KC_DOWN, KC_INS, KC_HOME, KC_PGDN, KC_PGUP, XXXXXXX, L_NAV, XXXXXXX, TD(TD_ENT), TD(TD_BSPC)),
+[_NAV] = LAYOUT(XXXXXXX, XXXXXXX, KC_DEL, KC_BSPC, XXXXXXX, C(S(KC_C)), C(KC_V), C(KC_C), C(KC_X), C(KC_Z), KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_UP, KC_CAPS, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, XXXXXXX, KC_ENT, KC_LEFT, KC_RGHT, KC_DOWN, KC_INS, KC_HOME, KC_PGDN, KC_PGUP, XXXXXXX, L_NAV, XXXXXXX, TD(TD_ENT), TD(TD_BSPC)),
 
-    [_MOU] = LAYOUT(XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_MUTE, XXXXXXX, KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_VOLU, XXXXXXX, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, XXXXXXX, KC_ALGR, XXXXXXX, XXXXXXX, KC_VOLD, KC_BTN2, KC_BTN1, KC_BTN3, XXXXXXX, XXXXXXX, TD(TD_MFB), TD(TD_MPS), XXXXXXX, L_MOU),
+[_MOU] = LAYOUT(XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_MUTE, XXXXXXX, KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_VOLU, XXXXXXX, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, XXXXXXX, KC_ALGR, XXXXXXX, XXXXXXX, KC_VOLD, KC_BTN2, KC_BTN1, KC_BTN3, XXXXXXX, XXXXXXX, TD(TD_MFB), TD(TD_MPS), XXXXXXX, L_MOU),
     // [_BUTTON] = LAYOUT(
     //     KC_UNDO,       KC_CUT,   KC_COPY,    KC_PSTE,    KC_AGIN,   C(S(KC_C)),    C(KC_V),    C(KC_C),    C(KC_X),    C(KC_Z),
     //     KC_LGUI,      KC_LALT,   KC_LCTL,    KC_LSFT,    XXXXXXX,      XXXXXXX,    KC_LSFT,    KC_LCTL,    KC_LALT,    KC_LGUI,
