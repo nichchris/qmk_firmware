@@ -39,9 +39,6 @@ enum custom_keycodes {
     L_SYM,
     L_NUM,
     L_NAV,
-    L_MOU,
-    LL_BUT,
-    LR_BUT,
     SYS,
 };
 
@@ -49,12 +46,9 @@ enum custom_keycodes {
 
 #define L_SYM LT(_SYM, KC_BSPC)
 #define L_NUM LT(_NUM, KC_SPC)
-#define L_NAV LT(_NAV, KC_ESC)
+#define L_NAV LT(_NAV, KC_ENT)
 
 #define SYS MO(_SYS)
-
-#define QWERTY DF(_QWERTY)
-#define ENGRAMISH DF(_ENGRAMISH)
 
 // COMBOS
 
@@ -65,16 +59,24 @@ enum combo_events {
     COMBO_LENGTH };
 uint16_t COMBO_LEN = COMBO_LENGTH; // remove the COMBO_COUNT define and use this instead!
 
-const uint16_t PROGMEM email_combo[]      = {KC_E, KC_M, COMBO_END};
-const uint16_t PROGMEM pydef_combo[]      = {KC_P, KC_Y, KC_T, COMBO_END};
-const uint16_t PROGMEM clear_line_combo[] = {KC_BSPC, KC_LSFT, COMBO_END};
-const uint16_t PROGMEM nordic_ae_combo[] = {KC_BSPC, KC_LSFT, COMBO_END};
-const uint16_t PROGMEM nordic_oe_combo[] = {KC_BSPC, KC_LSFT, COMBO_END};
-const uint16_t PROGMEM nordic_ae_combo[] = {KC_BSPC, KC_LSFT, COMBO_END};
+const uint16_t PROGMEM email_combo[]        = {KC_S, KC_W, COMBO_END};
+const uint16_t PROGMEM pydef_combo[]        = {KC_P, KC_Y, KC_T, COMBO_END};
+const uint16_t PROGMEM clear_line_combo[]   = {KC_BSPC, KC_LSFT, COMBO_END};
+const uint16_t PROGMEM nordic_ae_combo[]    = {KC_L, KC_U, COMBO_END};
+const uint16_t PROGMEM nordic_oe_combo[]    = {KC_BSPC, KC_LSFT, COMBO_END};
+const uint16_t PROGMEM nordic_ae_combo[]    = {KC_BSPC, KC_LSFT, COMBO_END};
+const uint16_t PROGMEM redo_combo[]         = {KC_K, NO_MINS, COMBO_END};
+const uint16_t PROGMEM undo_combo[]         = {KC_D, KC_COMM, COMBO_END};
+const uint16_t PROGMEM squiggly_l_combo[]   = {KC_W, ALT_T(KC_S), COMBO_END};
+const uint16_t PROGMEM square_l_combo[]     = {KC_B, CTL_T(KC_T), COMBO_END};
+const uint16_t PROGMEM para_l_combo[]       = {KC_K, SFT_T(KC_H), COMBO_END};
+const uint16_t PROGMEM para_r_combo[]       = {KC_L, SFT_T(KC_N), COMBO_END};
+const uint16_t PROGMEM square_r_combo[]     = {KC_U, CTL_T(KC_A), COMBO_END};
+const uint16_t PROGMEM squiggly_r_combo[]   = {KC_Y, ALT_T(KC_I), COMBO_END};
 
 combo_t key_combos[] = {
-    [EM_EMAIL] = COMBO_ACTION(email_combo),
-    [PY_DEF] = COMBO_ACTION(pydef_combo),
+    [EM_EMAIL]        = COMBO_ACTION(email_combo),
+    [PY_DEF]          = COMBO_ACTION(pydef_combo),
     [BSPC_LSFT_CLEAR] = COMBO_ACTION(clear_line_combo),
 };
 /* COMBO_ACTION(x) is same as COMBO(x, KC_NO) */
@@ -106,21 +108,42 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // ╭─────────────────────────────────────────────╮ ╭─────────────────────────────────────────────╮
         KC_V,    KC_W,    KC_B,    KC_K, XXXXXXX,    XXXXXXX,    KC_L,    KC_U,    KC_Y,    KC_X,
 // ├─────────────────────────────────────────────┤ ├─────────────────────────────────────────────┤
-    GUI_T(KC_R), ALT_T(KC_S), CTL_T(KC_T),  SFT_T(KC_H), NO_MINS, KC_QUOT, SFT_T(KC_N), CTL_T(KC_A), ALT_T(KC_I), GUI_T(KC_O),
+    GUI_T(KC_R),ALT_T(KC_S),CTL_T(KC_T),SFT_T(KC_H), NO_MINS, KC_QUOT, SFT_T(KC_N), CTL_T(KC_A), ALT_T(KC_I), GUI_T(KC_O),
 // ├─────────────────────────────────────────────┤ ├─────────────────────────────────────────────┤
-    XXXXXXX, KC_C, KC_G, KC_D, NO_COMM, KC_DOT, KC_M, KC_F, KC_J, XXXXXXX,
+     XXXXXXX,    KC_C,    KC_G,    KC_D,  NO_COMM,   KC_DOT,    KC_M,    KC_F,    KC_J,  XXXXXXX,
 // ╰─────────────────────────────────────────────┤ ├─────────────────────────────────────────────╯
                                 L_NAV,   L_NUM,     KC_E,    L_SYM
 //                   ╰───────────────────────────╯ ╰──────────────────╯
-// ),
+),
 
+[_SYM]= LAYOUT(
+// ╭─────────────────────────────────────────────╮ ╭─────────────────────────────────────────────╮
+        KC_V,    KC_W,    KC_B,    KC_K, XXXXXXX,    XXXXXXX,    KC_L,    KC_U,    KC_Y,KC_RIGHT,
+// ├─────────────────────────────────────────────┤ ├─────────────────────────────────────────────┤
+    KC_R, ALT_T(KC_S), CTL_T(KC_T) KC_H, NO_MINS,    KC_QUOT, KC_LEFT, KC_DOWN,   KC_UP,  KC_END,
+// ├─────────────────────────────────────────────┤ ├─────────────────────────────────────────────┤
+     XXXXXXX,    KC_C,    KC_G,    KC_D,  NO_COMM,    KC_DOT, KC_HOME, KC_PGDN, KC_PGUP, XXXXXXX,
+// ╰─────────────────────────────────────────────┤ ├─────────────────────────────────────────────╯
+                                L_NAV,   L_NUM,     KC_E,    L_SYM
+//                   ╰───────────────────────────╯ ╰──────────────────╯
 //     [_SYM] = LAYOUT(
 //         NO_LBRC, KC_9, KC_8, KC_7, XXXXXXX, XXXXXXX, NO_GRV, NO_SLSH, NO_BSLS, S(NO_0), 
 //         NO_CIRC, KC_3, KC_2, KC_1, KC_0, NO_AMPR, SFT_T(NO_PIPE), CTL_T(S(NO_PIPE)), ALT_T(ALGR(NO_5)), GUI_T(ALGR(NO_3)), 
 //         XXXXXXX, KC_6, KC_5, KC_4, NO_MINS, NO_EXLM, NO_QUES, NO_MICR, XXXXXXX, XXXXXXX, 
 //         XXXXXXX, XXXXXXX, L_SYM, XXXXXXX),
 
-//     [_NAV] = LAYOUT(
+[_NAV]= LAYOUT(
+// ╭─────────────────────────────────────────────╮ ╭─────────────────────────────────────────────╮
+        KC_V,    KC_W,    KC_B,    KC_K, XXXXXXX,    XXXXXXX,    KC_L,    KC_U,    KC_Y,KC_RIGHT,
+// ├─────────────────────────────────────────────┤ ├─────────────────────────────────────────────┤
+    KC_R, ALT_T(KC_S), CTL_T(KC_T) KC_H, NO_MINS,    KC_QUOT, KC_LEFT, KC_DOWN,   KC_UP,  KC_END,
+// ├─────────────────────────────────────────────┤ ├─────────────────────────────────────────────┤
+     XXXXXXX,    KC_C,    KC_G,    KC_D,  NO_COMM,    KC_DOT, KC_HOME, KC_PGDN, KC_PGUP, XXXXXXX,
+// ╰─────────────────────────────────────────────┤ ├─────────────────────────────────────────────╯
+                                L_NAV,   L_NUM,     KC_E,    L_SYM
+//                   ╰───────────────────────────╯ ╰──────────────────╯
+),
+//  = LAYOUT(
 //         XXXXXXX, XXXXXXX, KC_DEL, KC_BSPC, XXXXXXX, C(S(KC_C)), C(KC_V), C(KC_C), C(KC_X), C(KC_Z), 
 //         KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_UP, KC_CAPS, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, 
 //         XXXXXXX, KC_ENT, KC_LEFT, KC_RGHT, KC_DOWN, KC_INS, KC_HOME, KC_PGDN, KC_PGUP, 
@@ -176,7 +199,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-    return update_tri_layer_state(state, _NAV, _MOU, _SYS);
+    return update_tri_layer_state(state, _NAV, _SYM, _SYS);
 }
 
 bool     muse_mode      = false;
