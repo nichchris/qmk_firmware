@@ -61,18 +61,25 @@ uint16_t COMBO_LEN = COMBO_LENGTH; // remove the COMBO_COUNT define and use this
 
 const uint16_t PROGMEM email_combo[]        = {KC_S, KC_W, COMBO_END};
 const uint16_t PROGMEM pydef_combo[]        = {KC_P, KC_Y, KC_T, COMBO_END};
-const uint16_t PROGMEM clear_line_combo[]   = {KC_BSPC, KC_LSFT, COMBO_END};
+
 const uint16_t PROGMEM nordic_ae_combo[]    = {KC_L, KC_U, COMBO_END};
 const uint16_t PROGMEM nordic_oe_combo[]    = {KC_BSPC, KC_LSFT, COMBO_END};
 const uint16_t PROGMEM nordic_ae_combo[]    = {KC_BSPC, KC_LSFT, COMBO_END};
-const uint16_t PROGMEM redo_combo[]         = {KC_K, NO_MINS, COMBO_END};
-const uint16_t PROGMEM undo_combo[]         = {KC_D, KC_COMM, COMBO_END};
+
 const uint16_t PROGMEM squiggly_l_combo[]   = {KC_W, ALT_T(KC_S), COMBO_END};
-const uint16_t PROGMEM square_l_combo[]     = {KC_B, CTL_T(KC_T), COMBO_END};
-const uint16_t PROGMEM para_l_combo[]       = {KC_K, SFT_T(KC_H), COMBO_END};
+const uint16_t PROGMEM square_l_combo[]     = {KC_F, CTL_T(KC_T), COMBO_END};
+const uint16_t PROGMEM para_l_combo[]       = {KC_P, SFT_T(KC_H), COMBO_END};
 const uint16_t PROGMEM para_r_combo[]       = {KC_L, SFT_T(KC_N), COMBO_END};
 const uint16_t PROGMEM square_r_combo[]     = {KC_U, CTL_T(KC_A), COMBO_END};
 const uint16_t PROGMEM squiggly_r_combo[]   = {KC_Y, ALT_T(KC_I), COMBO_END};
+
+const uint16_t PROGMEM redo_combo[]         = {KC_P, NO_MINS, COMBO_END};
+const uint16_t PROGMEM undo_combo[]         = {SFT_T(KC_H), KC_COMM, COMBO_END};
+const uint16_t PROGMEM esc_combo[]    = {KC_BSPC, KC_LSFT, COMBO_END};
+const uint16_t PROGMEM bspc_combo[]    = {KC_BSPC, KC_LSFT, COMBO_END};
+const uint16_t PROGMEM delete_combo[]    = {KC_BSPC, KC_LSFT, COMBO_END};
+const uint16_t PROGMEM delete_word_combo[]   = {KC_BSPC, KC_LSFT, COMBO_END};
+const uint16_t PROGMEM clear_line_combo[]   = {KC_BSPC, KC_LSFT, COMBO_END};
 
 combo_t key_combos[] = {
     [EM_EMAIL]        = COMBO_ACTION(email_combo),
@@ -106,11 +113,11 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_ENGRAMISH] = LAYOUT(
 // ╭─────────────────────────────────────────────╮ ╭─────────────────────────────────────────────╮
-        KC_V,    KC_W,    KC_B,    KC_K, XXXXXXX,    XXXXXXX,    KC_L,    KC_U,    KC_Y,    KC_X,
+        KC_K,    KC_W,    KC_F,    KC_P, XXXXXXX,    XXXXXXX,    KC_L,    KC_U,    KC_Y,    KC_X,
 // ├─────────────────────────────────────────────┤ ├─────────────────────────────────────────────┤
     GUI_T(KC_R),ALT_T(KC_S),CTL_T(KC_T),SFT_T(KC_H), NO_MINS, KC_QUOT, SFT_T(KC_N), CTL_T(KC_A), ALT_T(KC_I), GUI_T(KC_O),
 // ├─────────────────────────────────────────────┤ ├─────────────────────────────────────────────┤
-     XXXXXXX,    KC_C,    KC_G,    KC_D,  NO_COMM,   KC_DOT,    KC_M,    KC_F,    KC_J,  XXXXXXX,
+     XXXXXXX,    KC_C,    KC_G,    KC_D,  NO_COMM,   KC_DOT,    KC_M,    KC_B,    KC_J,  XXXXXXX,
 // ╰─────────────────────────────────────────────┤ ├─────────────────────────────────────────────╯
                                 L_NAV,   L_NUM,     KC_E,    L_SYM
 //                   ╰───────────────────────────╯ ╰──────────────────╯
@@ -118,11 +125,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_SYM]= LAYOUT(
 // ╭─────────────────────────────────────────────╮ ╭─────────────────────────────────────────────╮
-        KC_V,    KC_W,    KC_B,    KC_K, XXXXXXX,    XXXXXXX,    KC_L,    KC_U,    KC_Y,KC_RIGHT,
+        KC_V,    KC_9,    KC_8,    KC_7, XXXXXXX,    XXXXXXX,    KC_L,    KC_U,    KC_Y,KC_RIGHT,
 // ├─────────────────────────────────────────────┤ ├─────────────────────────────────────────────┤
-    KC_R, ALT_T(KC_S), CTL_T(KC_T) KC_H, NO_MINS,    KC_QUOT, KC_LEFT, KC_DOWN,   KC_UP,  KC_END,
+        KC_3,    KC_2,    KC_1,    KC_0,  NO_MINS,    KC_QUOT, KC_LEFT, KC_DOWN,   KC_UP,  KC_END,
 // ├─────────────────────────────────────────────┤ ├─────────────────────────────────────────────┤
-     XXXXXXX,    KC_C,    KC_G,    KC_D,  NO_COMM,    KC_DOT, KC_HOME, KC_PGDN, KC_PGUP, XXXXXXX,
+     XXXXXXX,    KC_6,    KC_5,    KC_4,  NO_COMM,    KC_DOT, KC_HOME, KC_PGDN, KC_PGUP, XXXXXXX,
 // ╰─────────────────────────────────────────────┤ ├─────────────────────────────────────────────╯
                                 L_NAV,   L_NUM,     KC_E,    L_SYM
 //                   ╰───────────────────────────╯ ╰──────────────────╯
@@ -136,7 +143,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // ╭─────────────────────────────────────────────╮ ╭─────────────────────────────────────────────╮
         KC_V,    KC_W,    KC_B,    KC_K, XXXXXXX,    XXXXXXX,    KC_L,    KC_U,    KC_Y,KC_RIGHT,
 // ├─────────────────────────────────────────────┤ ├─────────────────────────────────────────────┤
-    KC_R, ALT_T(KC_S), CTL_T(KC_T) KC_H, NO_MINS,    KC_QUOT, KC_LEFT, KC_DOWN,   KC_UP,  KC_END,
+    KC_R, ALT_T(KC_S), CTL_T(KC_T), KC_H, NO_MINS,    KC_QUOT, KC_LEFT, KC_DOWN,   KC_UP,  KC_END,
 // ├─────────────────────────────────────────────┤ ├─────────────────────────────────────────────┤
      XXXXXXX,    KC_C,    KC_G,    KC_D,  NO_COMM,    KC_DOT, KC_HOME, KC_PGDN, KC_PGUP, XXXXXXX,
 // ╰─────────────────────────────────────────────┤ ├─────────────────────────────────────────────╯
