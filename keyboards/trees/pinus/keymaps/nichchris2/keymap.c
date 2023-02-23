@@ -80,6 +80,8 @@ const uint16_t PROGMEM redo_combo[]         = {KC_P, NO_MINS, COMBO_END};
 const uint16_t PROGMEM undo_combo[]         = {SFT_T(KC_H), KC_COMM, COMBO_END};
 const uint16_t PROGMEM esc_combo[]          = {KC_BSPC, KC_LSFT, COMBO_END};
 const uint16_t PROGMEM bspc_combo[]         = {KC_BSPC, KC_LSFT, COMBO_END};
+const uint16_t PROGMEM _combo[]         = {KC_BSPC, KC_LSFT, COMBO_END};
+const uint16_t PROGMEM bspc_combo[]         = {KC_BSPC, KC_LSFT, COMBO_END};
 const uint16_t PROGMEM delete_combo[]       = {KC_BSPC, KC_LSFT, COMBO_END};
 const uint16_t PROGMEM delete_word_combo[]  = {KC_BSPC, KC_LSFT, COMBO_END};
 const uint16_t PROGMEM clear_line_combo[]   = {KC_BSPC, KC_LSFT, COMBO_END};
@@ -139,7 +141,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // ├─────────────────────────────────────────────┤ ├─────────────────────────────────────────────┤
         KC_3,    KC_2,    KC_1,    KC_0,  NO_MINS,    KC_QUOT, KC_LEFT, KC_DOWN,   KC_UP,  KC_END,
 // ├─────────────────────────────────────────────┤ ├─────────────────────────────────────────────┤
-     XXXXXXX,    KC_6,    KC_5,    KC_4,  NO_COMM,    KC_DOT, KC_HOME, KC_PGDN, KC_PGUP, XXXXXXX,
+     XXXXXXX,    KC_6,    KC_5,    KC_4,  NO_PLUS,    KC_DOT, KC_HOME, KC_PGDN, KC_PGUP, XXXXXXX,
 // ╰─────────────────────────────────────────────┤ ├─────────────────────────────────────────────╯
                                 L_NAV,   L_NUM,     KC_E,    L_SYM
 //                   ╰───────────────────────────╯ ╰──────────────────╯
