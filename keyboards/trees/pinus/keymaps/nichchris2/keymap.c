@@ -62,9 +62,12 @@ uint16_t COMBO_LEN = COMBO_LENGTH; // remove the COMBO_COUNT define and use this
 const uint16_t PROGMEM email_combo[]        = {KC_S, KC_W, COMBO_END};
 const uint16_t PROGMEM pydef_combo[]        = {KC_P, KC_Y, KC_T, COMBO_END};
 
-const uint16_t PROGMEM nordic_ae_combo[]    = {KC_L, KC_U, COMBO_END};
-const uint16_t PROGMEM nordic_oe_combo[]    = {KC_BSPC, KC_LSFT, COMBO_END};
-const uint16_t PROGMEM nordic_ae_combo[]    = {KC_BSPC, KC_LSFT, COMBO_END};
+const uint16_t PROGMEM nordic_oe_combo[]    = {KC_U, KC_Y, COMBO_END};
+const uint16_t PROGMEM nordic_ae_combo[]    = {KC_L, KC_Y, COMBO_END};
+const uint16_t PROGMEM nordic_ae_combo[]    = {KC_B, KC_J, COMBO_END};
+const uint16_t PROGMEM q_combo[]            = {KC_W, KC_P, COMBO_END};
+const uint16_t PROGMEM z_combo[]            = {KC_C, KC_G, COMBO_END};
+const uint16_t PROGMEM v_combo[]            = {KC_W, KC_F, COMBO_END};
 
 const uint16_t PROGMEM squiggly_l_combo[]   = {KC_W, ALT_T(KC_S), COMBO_END};
 const uint16_t PROGMEM square_l_combo[]     = {KC_F, CTL_T(KC_T), COMBO_END};
@@ -75,10 +78,10 @@ const uint16_t PROGMEM squiggly_r_combo[]   = {KC_Y, ALT_T(KC_I), COMBO_END};
 
 const uint16_t PROGMEM redo_combo[]         = {KC_P, NO_MINS, COMBO_END};
 const uint16_t PROGMEM undo_combo[]         = {SFT_T(KC_H), KC_COMM, COMBO_END};
-const uint16_t PROGMEM esc_combo[]    = {KC_BSPC, KC_LSFT, COMBO_END};
-const uint16_t PROGMEM bspc_combo[]    = {KC_BSPC, KC_LSFT, COMBO_END};
-const uint16_t PROGMEM delete_combo[]    = {KC_BSPC, KC_LSFT, COMBO_END};
-const uint16_t PROGMEM delete_word_combo[]   = {KC_BSPC, KC_LSFT, COMBO_END};
+const uint16_t PROGMEM esc_combo[]          = {KC_BSPC, KC_LSFT, COMBO_END};
+const uint16_t PROGMEM bspc_combo[]         = {KC_BSPC, KC_LSFT, COMBO_END};
+const uint16_t PROGMEM delete_combo[]       = {KC_BSPC, KC_LSFT, COMBO_END};
+const uint16_t PROGMEM delete_word_combo[]  = {KC_BSPC, KC_LSFT, COMBO_END};
 const uint16_t PROGMEM clear_line_combo[]   = {KC_BSPC, KC_LSFT, COMBO_END};
 
 combo_t key_combos[] = {
@@ -99,6 +102,13 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
             if (pressed) {
                 tap_code16(KC_END);
                 tap_code16(S(KC_HOME));
+                tap_code16(KC_BSPC);
+            }
+            break;
+        case DELETE_WORD:
+            if (pressed) {
+                tap_code16(C(KC_RIGHT));
+                tap_code16(S(C(KC_LEFT));
                 tap_code16(KC_BSPC);
             }
             break;
