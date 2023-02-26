@@ -83,4 +83,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define BOOTMAGIC_LITE_COLUMN_RIGHT 4
 
 #define TAPPING_TERM 200
+#define CAPS_WORD_IDLE_TIMEOUT 3000 // 3 seconds.
 // #define COMBO_COUNT COMBO_LEN
