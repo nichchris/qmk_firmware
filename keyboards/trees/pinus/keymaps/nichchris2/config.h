@@ -85,3 +85,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define TAPPING_TERM 200
 #define CAPS_WORD_IDLE_TIMEOUT 3000 // 3 seconds.
 // #define COMBO_COUNT COMBO_LEN
+#define COMBO_ONLY_FROM_LAYER 0
+#define IGNORE_MOD_TAP_INTERRUPT

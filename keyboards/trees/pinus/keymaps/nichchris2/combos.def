@@ -1,0 +1,110 @@
+/  name     result    chord keys
+// Missing alpha
+COMB(Z,      KC_Z,     KC_F, KC_M)
+COMB(V,      KC_V,     KC_C, KC_L)
+COMB(Q,      KC_Q,     KC_L, KC_D)
+
+// [({})]
+COMB(LBRC,   KC_LBRC,  KC_F, KC_S)
+COMB(LPRN,   KC_LPRN,  KC_M, KC_N)
+COMB(LCBR,   KC_LCBR,  KC_P, KC_T)
+COMB(RBRC,   KC_RBRC,  KC_J, KC_I)
+COMB(RPRN,   KC_RPRN,  KC_QUOTE, KC_E)
+COMB(RCBR,   KC_RCBR,  KC_X, KC_A)
+
+// MISC
+COMB(ESC,           KC_ESC,     KC_D, MO_NAV)
+COMB(CLIP,          CLIPBOARD,  KC_C, KC_L, KC_D)
+COMB(LAUNCH,        LAUNCHER,   KC_C, KC_D)
+COMB(CAPS,          CAPS_WORD,  KC_SPACE, OSM_SHFT)
+COMB(DSCRL_TOG,     DRG_TOG,    KC_BTN2, KC_BTN3)
+COMB(SNIPE_TOG,     SNP_TOG,    SNIPING, KC_BTN2)
+COMB(DRAGSCRL,      DRGSCRL,    KC_BTN1, KC_BTN2)
+COMB(ACC_TOG,       ACCEL_TOG,  SNIPING, KC_BTN3)
+COMB(UNDO_COMBO,    UNDO,       KC_T, KC_G)
+COMB(REDO_COMBO,    REDO,       KC_P, KC_B)
+COMB(REPEAT_LEFT,   REPEAT,     KC_D, KC_G)
+COMB(REPEAT_RIGHT,  REPEAT,     KC_DOT, KC_U)
+COMB(SW_WIN_COMBO,  SW_WIN,     KC_F, KC_P)
+COMB(SYM_1H,        MO_SYMW,    MO_NAV, KC_SPACE)
+
+// WIN/MAC
+COMB(WIN, WIN_LAYER,  MO_NAV,  KC_U, KC_Y)
+COMB(MAC, MAC_LAYER,  MO_SYM,  KC_D, KC_C)
+
+// QMK
+COMB(BOOT,  QK_BOOT,  KC_COMMA, KC_X, KC_QUOTE, KC_J)
+COMB(RESET, EE_CLR,   KC_F, KC_M, KC_P, KC_B)
+
+OLD CODE:
+enum combo_events { 
+    EM_EMAIL, 
+    PY_DEF,
+    BSPC_LSFT_CLEAR, 
+    COMBO_LENGTH };
+uint16_t COMBO_LEN = COMBO_LENGTH; // remove the COMBO_COUNT define and use this instead!
+
+const uint16_t PROGMEM email_combo[]        = {KC_S, KC_W, COMBO_END};
+const uint16_t PROGMEM pydef_combo[]        = {KC_P, KC_Y, KC_T, COMBO_END};
+
+const uint16_t PROGMEM nordic_oe_combo[]    = {KC_U, KC_Y, COMBO_END};
+const uint16_t PROGMEM nordic_ae_combo[]    = {KC_L, KC_Y, COMBO_END};
+const uint16_t PROGMEM nordic_ae_combo[]    = {KC_B, KC_J, COMBO_END};
+const uint16_t PROGMEM q_combo[]            = {KC_W, KC_P, COMBO_END};
+const uint16_t PROGMEM z_combo[]            = {KC_C, KC_G, COMBO_END};
+const uint16_t PROGMEM v_combo[]            = {KC_W, KC_F, COMBO_END};
+
+const uint16_t PROGMEM squiggly_l_combo[]   = {KC_W, ALT_T(KC_S), COMBO_END};
+const uint16_t PROGMEM square_l_combo[]     = {KC_F, CTL_T(KC_T), COMBO_END};
+const uint16_t PROGMEM para_l_combo[]       = {KC_P, SFT_T(KC_H), COMBO_END};
+const uint16_t PROGMEM para_r_combo[]       = {KC_L, RSFT_T(KC_N), COMBO_END};
+const uint16_t PROGMEM square_r_combo[]     = {KC_U, CTL_T(KC_A), COMBO_END};
+const uint16_t PROGMEM squiggly_r_combo[]   = {KC_Y, ALT_T(KC_I), COMBO_END};
+
+const uint16_t PROGMEM redo_combo[]         = {KC_P, NO_MINS, COMBO_END};
+const uint16_t PROGMEM undo_combo[]         = {SFT_T(KC_H), KC_COMM, COMBO_END};
+const uint16_t PROGMEM esc_combo[]          = {KC_BSPC, KC_LSFT, COMBO_END};
+const uint16_t PROGMEM ent_combo[]          = {KC_BSPC, KC_LSFT, COMBO_END};
+const uint16_t PROGMEM bspc_combo[]         = {KC_BSPC, KC_LSFT, COMBO_END};
+const uint16_t PROGMEM caps_combo[]         = {KC_BSPC, KC_LSFT, COMBO_END};
+const uint16_t PROGMEM caps_word_combo[]    = {KC_BSPC, KC_LSFT, COMBO_END};
+const uint16_t PROGMEM bspc_combo[]         = {KC_BSPC, KC_LSFT, COMBO_END};
+const uint16_t PROGMEM delete_combo[]       = {KC_BSPC, KC_LSFT, COMBO_END};
+const uint16_t PROGMEM delete_word_combo[]  = {KC_BSPC, KC_LSFT, COMBO_END};
+const uint16_t PROGMEM clear_line_combo[]   = {KC_BSPC, KC_LSFT, COMBO_END};
+
+combo_t key_combos[] = {
+    [EM_EMAIL]        = COMBO_ACTION(email_combo),
+    [PY_DEF]          = COMBO_ACTION(pydef_combo),
+    [BSPC_LSFT_CLEAR] = COMBO_ACTION(clear_line_combo),
+};
+/* COMBO_ACTION(x) is same as COMBO(x, KC_NO) */
+
+void process_combo_event(uint16_t combo_index, bool pressed) {
+    switch (combo_index) {
+        case EM_EMAIL:
+            if (pressed) {
+                SEND_STRING("nich.h.chris@gmail.com");
+            }
+            break;
+        case BSPC_LSFT_CLEAR:
+            if (pressed) {
+                tap_code16(KC_END);
+                tap_code16(S(KC_HOME));
+                tap_code16(KC_BSPC);
+            }
+            break;
+        case DELETE_WORD:
+            if (pressed) {
+                tap_code16(C(KC_RIGHT));
+                tap_code16(S(C(KC_LEFT));
+                tap_code16(KC_BSPC);
+            }
+            break;
+        case PY_DEF:
+            if (pressed) {
+                SEND_STRING("nich.h.chris@gmail.com");
+            }
+            break;
+    }
+}
