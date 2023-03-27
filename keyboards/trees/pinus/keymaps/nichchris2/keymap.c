@@ -51,7 +51,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // ╭─────────────────────────────────────────────╮ ╭─────────────────────────────────────────────╮
         KC_K,    KC_W,    KC_F,    KC_P, XXXXXXX,    XXXXXXX,    KC_L,    KC_U,    KC_Y,    KC_X,
 // ├─────────────────────────────────────────────┤ ├─────────────────────────────────────────────┤
-    GUI_T(KC_R),ALT_T(KC_S),CTL_T(KC_T),SFT_T(KC_H), NO_MINS, KC_NUHS, RSFT_T(KC_N), CTL_T(KC_A), ALT_T(KC_I), GUI_T(KC_O),
+    GUI_T(KC_R),ALT_T(KC_S),CTL_T(KC_T),SFT_T(KC_H), KC_NUHS, NO_MINS, RSFT_T(KC_N), CTL_T(KC_A), ALT_T(KC_I), GUI_T(KC_O),
 // ├─────────────────────────────────────────────┤ ├─────────────────────────────────────────────┤
      XXXXXXX,    KC_C,    KC_G,    KC_D,  NO_COMM,   KC_DOT,    KC_M,    KC_B,    KC_J,  XXXXXXX,
 // ╰─────────────────────────────────────────────┤ ├─────────────────────────────────────────────╯
@@ -133,7 +133,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 layer_state_t layer_state_set_user(layer_state_t state) {
     state = update_tri_layer_state(state, _NAV, _SYM, _SYS);
-    state = update_tri_layer_state(state, _NAV, _MOU, _SYM);
+    state = update_tri_layer_state(state, _NAV, _MOU, _SYM_COPY);
     return state;
 }
 
