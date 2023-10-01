@@ -1,0 +1,38 @@
+{
+    "manufacturer": "nichchris",
+    "keyboard_name": "Zelkova",
+    "maintainer": "nichchris",
+    "bootloader": "rp2040",
+    "processor": "RP2040",
+    "diode_direction": "COL2ROW",
+    "url": "",
+    "usb": {
+        "device_version": "1.0.0",
+        "pid": "0x0000",
+        "vid": "0xFEED"
+    },
+    "features": {
+        "bootmagic": true,
+        "command": false,
+        "console": false,
+        "extrakey": true,
+        "mousekey": true,
+        "nkro": true,
+        "oled": false,
+        "rgblight": false,
+        "encoder": false
+    },
+    "matrix_pins": {
+        "rows": ["GP3", "GP4", "GP2", "GP7"],
+        "cols": ["GP6", "GP29", "GP28", "GP27", "GP26"]
+    },
+    "indicators": {
+        "num_lock": "GP16",
+        "scroll_lock": "GP17",
+        "caps_lock": "GP25",
+        "on_state": 0
+    },
+    "split": {
+        "enabled": true
+    },
+}

@@ -56,7 +56,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 
-#define UNUSED_PINS
+// #define UNUSED_PINS
 
 /* Debounce reduces chatter (unintended double-presses) - set 0 if debouncing is not needed */
 #define DEBOUNCE 5
@@ -87,3 +87,4 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // #define COMBO_COUNT COMBO_LEN
 #define COMBO_ONLY_FROM_LAYER 0
 #define IGNORE_MOD_TAP_INTERRUPT
+#define PREVENT_STUCK_MODIFIERS

@@ -1,9 +1,10 @@
 #pragma once
+#include QMK_KEYBOARD_H
 
-#include "keymap.h"
 #include "keymap_norwegian.h"
 
-enum combo_events {
+enum combo_events
+{
     // EM_EMAIL,
     // PY_DEF,
     // BSPC_LSFT_CLEAR,
@@ -25,7 +26,8 @@ enum combo_events {
     BACKWARD_SLASH,
     REDO,
     UNDO,
-    ESC,
+    ESC_LEFT,
+    ESC_RIGHT,
     ENT,
     TENT,
     BACKSPC,
@@ -57,10 +59,11 @@ const uint16_t PROGMEM larger_than_combo[]      = {KC_F, SFT_T(KC_H), COMBO_END}
 
 const uint16_t PROGMEM redo_combo[]        = {KC_P, KC_NUHS, COMBO_END};
 const uint16_t PROGMEM undo_combo[]        = {SFT_T(KC_H), KC_COMM, COMBO_END};
-const uint16_t PROGMEM esc_combo[]         = {KC_D, L_NAV, COMBO_END};
+const uint16_t PROGMEM esc_left_combo[]         = {KC_D, L_NAV, COMBO_END};
+const uint16_t PROGMEM esc_right_combo[]         = {KC_M, L_SYM, COMBO_END};
 const uint16_t PROGMEM power_up_combo[]    = {KC_NUHS, KC_L, COMBO_END};
-// const uint16_t PROGMEM ent_combo[]         = {KC_X, GUI_T(KC_O), COMBO_END};
-// const uint16_t PROGMEM ent_thumb_combo[]   = {KC_E, KC_M, COMBO_END};
+// const uint16_t PROGMEM ent_combo[]         = {KC_E, L_SYM, COMBO_END};
+const uint16_t PROGMEM ent_thumb_combo[]   = {KC_E, KC_M, COMBO_END};
 // const uint16_t PROGMEM bspc_combo[]        = {KC_BSPC, KC_LSFT, COMBO_END};
 const uint16_t PROGMEM caps_combo[]        = {NO_COMM, KC_DOT, COMBO_END};
 const uint16_t PROGMEM cps_word_combo[]   = {L_MOU, KC_E, COMBO_END};
@@ -96,10 +99,11 @@ combo_t key_combos[] = {
     [LARGER_THAN] = COMBO(larger_than_combo, S(NO_LABK)),
     [REDO] = COMBO(redo_combo, C(KC_Y)),
     [UNDO] = COMBO(undo_combo, C(KC_Z)),
-    [ESC] = COMBO(esc_combo, KC_ESC),
+    [ESC_LEFT] = COMBO(esc_left_combo, KC_ESC),
+    [ESC_RIGHT] = COMBO(esc_right_combo, KC_ESC),
     [POWER_UP] = COMBO(power_up_combo, NO_CIRC),
     // [ENT]               = COMBO(ent_combo, KC_ENT),
-    // [TENT]              = COMBO(ent_thumb_combo, KC_ENT),
+    [TENT] = COMBO(ent_thumb_combo, KC_ENT),
     // [BACKSPC]           = COMBO(bspc_combo, KC_BSPC),
     [CAPS] = COMBO(caps_combo, KC_CAPS),
     [CPS_WORD] = COMBO_ACTION(cps_word_combo),
