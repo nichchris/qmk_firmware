@@ -45,18 +45,3 @@
 
 /* RGB matrix support. */
 #define SPLIT_TRANSPORT_MIRROR
-#define RGB_DISABLE_WHEN_USB_SUSPENDED
-#define RGB_MATRIX_KEYPRESSES
-#define RGB_MATRIX_FRAMEBUFFER_EFFECTS
-
-// Startup values.
-#define RGB_MATRIX_DEFAULT_HUE 0
-#define RGB_MATRIX_DEFAULT_SAT 255
-#define RGB_MATRIX_DEFAULT_VAL 64
-
-// Rainbow swirl as startup mode.
-#define ENABLE_RGB_MATRIX_CYCLE_LEFT_RIGHT
-#define RGB_MATRIX_DEFAULT_MODE RGB_MATRIX_CYCLE_LEFT_RIGHT
-
-// Slow swirl at startup.
-#define RGB_MATRIX_DEFAULT_SPD 32

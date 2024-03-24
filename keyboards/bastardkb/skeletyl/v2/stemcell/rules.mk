@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # MCU name
 MCU = STM32F411
 
@@ -5,6 +6,8 @@ MCU = STM32F411
 BOOTLOADER = stm32-dfu
 CONVERT_TO = stemcell
 
+=======
+>>>>>>> master
 # Build Options
 #   change yes to no to disable
 #
